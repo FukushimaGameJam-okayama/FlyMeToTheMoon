@@ -1,5 +1,5 @@
-﻿//#define PC
-#define Phone
+﻿#define PC
+//#define Phone
 
 using UnityEngine;
 using System.Collections;
@@ -43,8 +43,8 @@ public class BalloonController : MonoBehaviour {
 	private Vector3 de;//画面外かの判定.
 	void Update () {
 		de = MainCamera.WorldToViewportPoint(gameObject.transform.position);
-		#if PC
 
+		#if PC
 		if ((de.x>0.15f && Input.GetKey (KeyCode.LeftArrow))||(de.x<0.89f && Input.GetKey (KeyCode.RightArrow))){
 			if((de.x>0.15f && Input.GetKey (KeyCode.LeftArrow))&&(de.x<0.89f && Input.GetKey (KeyCode.RightArrow)))Balloon.velocity=Vector2.zero;
 			else if(de.x>0.15f && Input.GetKey (KeyCode.LeftArrow))Balloon.velocity=Vector2.left; 
@@ -56,6 +56,7 @@ public class BalloonController : MonoBehaviour {
 			Balloon.AddForce (new Vector2 (0, 70.0f));
 			IsFire=true;
 		}else IsFire=false;
+		//Balloon.AddForce (new Vector2 (0, 70.0f));//debug.
 		#endif
 
 		#if Phone

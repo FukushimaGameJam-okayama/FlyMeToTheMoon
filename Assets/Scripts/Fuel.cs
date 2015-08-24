@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿//#define Muteki
+using UnityEngine;
 using UnityEngine.UI;
 
 using System.Collections;
@@ -12,11 +13,12 @@ public class Fuel : MonoBehaviour {
 	
 	public void DamageGet()
 	{
-	
+
 		IsLock=true;
 		Life=0;
 		timeCount=1;
 		LifeChange(-0.1f);
+
 	}
 
 	public void LifeChange(float dif){
@@ -27,10 +29,15 @@ public class Fuel : MonoBehaviour {
 			FaildResult.SetActive(true);
 		}
 		else LifeMax=LifeMax+dif;
+		#if Muteki
+		LifeMax=1;
+		#endif
 		_sliderY.value = LifeMax;
 	}
+
 	private float timeCount;
 	public bool IsLock=false;//操作不能にする.
+
 	void Update () {
 		Debug.Log ("Maxlife:"+LifeMax);
 		if(!IsLock){
@@ -50,6 +57,10 @@ public class Fuel : MonoBehaviour {
 			IsLock=true;
 			timeCount=0;
 		}
+		#if Muteki
+		Life=1;
+		IsLock=false;
+		#endif
 		_sliderG.value = Life;
 	}
 }
