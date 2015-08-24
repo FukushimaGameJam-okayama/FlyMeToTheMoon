@@ -1,10 +1,11 @@
 # =============== #
 # Unity generated #
 # =============== #
-Temp/
-Obj/
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
 UnityGenerated/
-Library/
+ProjectSettings/*.asset
 
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
@@ -35,6 +36,12 @@ Thumbs.db
 # ============ #
 # for others   #
 # ============ #
+
+# ============ #
+# Build        #
+# ============ #
+*.html
+*.unity3d
 
 *.log #log files, for some plugins
 *.pyc #python bytecode cache, for some plugins.
